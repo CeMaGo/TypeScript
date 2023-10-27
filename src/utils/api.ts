@@ -12,7 +12,7 @@ import { Deferred } from './deferred'
  * }} options - An object containing the state name, an optional array of other states to monitor, and a setter function to update the state.
  * @return {void}
  */
-export function useAsyncDataEffect(getData, options) {
+export function useAsyncDataEffect(getData: {() => Promise}, options) {
   let cancelled = false
   const { setter, stateName } = options
   useEffect(() => {

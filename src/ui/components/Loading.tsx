@@ -7,7 +7,7 @@ This comment
  * @type {React.FC<React.PropsWithChildren<any>>} param0 
  */
 
-const Loading = ({ message = 'Loading...', children }) => (
+const Loading: <React.PropsWithChildren<any> = ({ message = 'Loading...', children }) => (
   <h1>
     {message}...
     {children}
