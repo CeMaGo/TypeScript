@@ -2,14 +2,20 @@
   "name": "chat-stdlib",
   "packageManager": "yarn@3.6.4",
   "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "private": true,
   "scripts": {
-    "built": "yarn tsc",
+    "build": "yarn tsc",
+    "dev": "yarn build --watch --preserveWatchOutput",
     "lint": "yarn eslint src --ext js,ts",
+    "tests": "yarn build && yarn jest",
+    "watch": "yarn concurrently --names 'TS,JEST' -c 'red,blue' 'yarn watch build' 'yarn watch tests",
+    "watch-build": "yarn tsc --watch --preserveWatchOutput",
+    "watch-tests": "yarn jest --watch",
     "test": "yarn build && yarn jest"
   },
   "volta": {
-    "node": "18.18.2",
+    "node": "20.9.0",
     "yarn": "3.6.4"
   },
   "devDependencies": {
